@@ -35,3 +35,16 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+@views.route('/about')
+def about():
+    return render_template("about.html", user=current_user)
+
+@views.route('/projectdescription')
+def projectdescription():
+    return render_template("projectdescription.html", user=current_user)
+
+@views.route('/findhotels')
+def findhotels():
+    return render_template("findhotels.html", user=current_user)
+ 

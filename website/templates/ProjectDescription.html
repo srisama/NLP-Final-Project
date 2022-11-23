@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} 
+{% block content %}
+
+<h3 align="center">Project Description</h3>
+<div>
+<p>
+<b>Objective:</b>
+Analyzing customer reviews to perform sentiment analysis for each hotel. In addition, it will allow 
+customers to select a hotel based on their priorities based on Trip Advisor reviews. 
+</p>
+<br>
+<p>
+<b>Usefulness:</b>
+Trip advisors will benefit from it as it will boost their sales and revenue by bringing in customer 
+traffic. Based on their top priority, customers can select any hotel they desire. Choosing the right 
+hotel is essential for TripAdvisor as it will help customers make the right decision. There are no 
+other applications that have accomplished this goal.
+</p>
+<br>
+<p>
+<b>Data:   </b>
+We acquired the TripAdvisor hotel reviews dataset from CMU university. Datasets acquired are 
+in JSON format without preprocessing. In total, there are two files: offering.txt and review.txt. The 
+data in these two files can be classified as semi-structured or unstructured. The offering includes 
+many  data  points,  including  hotel  class,  region  id,  URL,  address,  type,  id,  and  hotel  name.  The 
+review data has ratings, title, text, author, date stayed, offering id, number of helpful votes, date, 
+id, and via mobile. 4333 hotels are listed in TripAdvisor's dataset with 878561 reviews. The hotel 
+class and the details fields in the offering and review data have null values. Additionally, some 
+reviews are written in French.
+</p>
+<br>
+<p>
+It would be necessary to clean the datasets by removing nulls, curly brackets, and French reviews 
+since they would not be helpful. To accomplish our project goal, we must combine the two datasets 
+to  utilize  the  necessary  fields.  Moreover,  we  plan  to  load  the  data  and  normalize  the  text  after 
+converting the datasets into a data frame.
+</p>
+<br>
+<p>
+<b>Functionalities: </b> 
+Several NLP tasks are planned for this project, including calculating polarity scores for positive, 
+negative, and neutral reviews. Our tentative plan is to create polarity and subjectivity scores using 
+NLTK and Text Blob. Typically, users will interact with the system by filtering the sections within 
+the  rating  categories,  thus  displaying  a  list  of  hotel  names  with  their  polarity  scores.  Machine 
+learning techniques such as Random Forests, SVM's, KNN, and Naive Bayes perform sentiment 
+analysis on TripAdvisor reviews. To classify 878561 reviews, moods are determined for each test 
+review in the dataset.
+</p>
+
+ 
+<p>
+<b>Contributions of team members during the first phase of the planning process as below:</b>
+</p>
+
+
+<b>1. Keerti Kolakaluri</b>
+<p>
+The objective and the purpose of the project.
+Documenting data collection and future preparation steps.   
+</p>
+
+<b>2. Bhavika Sharma</b>
+<p>
+Functionality description includes the following: 
+Tasks performed by the application.
+Machine learning Techniques to be used
+</p>
+<b>3. Sridhar Reddy Sama</b>
+<p>
+Documentation, Communication Channel Setup
+GitHub Repository Creation, Upload the ReadMe & dataset files
+</p>
+
+
+{% endblock %}
+
+</div>
