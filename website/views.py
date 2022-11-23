@@ -47,4 +47,14 @@ def projectdescription():
 @views.route('/findhotels')
 def findhotels():
     return render_template("findhotels.html", user=current_user)
- 
+
+
+@views.route('/explorationdata')
+def explorationdata():
+    return render_template("explorationdata.html", user=current_user)
+
+@views.route('/visualization')
+def visualization():
+    return render_template("visualization.html", user=current_user)
+
+
