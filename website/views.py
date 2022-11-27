@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Note
+from .models import Trip_Advisor_Reviews
+import sqlite3 as sql
 from . import db
 import json
 
@@ -44,9 +46,19 @@ def about():
 def projectdescription():
     return render_template("projectdescription.html", user=current_user)
 
-@views.route('/findhotels')
+@views.route('/findhotels',methods=['GET', 'POST'])
+@login_required
 def findhotels():
-    return render_template("findhotels.html", user=current_user)
+    con = sql.connect("database.db")
+    
+    con.row_factory = sql.Row
+   
+    cur = con.cursor()
+    cur.execute("select * from  offerings order by name ")
+   
+    hotelNames = cur.fetchall(); 
+    
+    return render_template("findhotels.html", user=current_user, hotels=hotelNames)
 
 
 @views.route('/explorationdata')

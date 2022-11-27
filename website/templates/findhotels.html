@@ -59,17 +59,18 @@
 </div>
 
 <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Search Hotels</button>
-    <div id="myDropdown" class="dropdown-content">
-      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-      <a href="#hotel1">Hyatt Place</a>
-      <a href="#hotel2">Hotel Edison</a>
-      <a href="#hotel3">The Manhattan</a>
-      <a href="#hotel4">Empire Hotel</a>
-      <a href="#hotel5">Paramount Hotel 5</a>
-      <a href="#hotel6">Hotel Sheraton</a>
-      <a href="#hotel7">Motel 6</a>
-    </div>
+  <form action="#" name="form" id="form" method="post">
+  <select name="option" width="300px">
+    {% for hotel in hotels %}
+        <option value="{{ hotel.id }}" SELECTED>{{ hotel.name }}</option>
+    {% endfor %}
+    </select>
+
+    <input class="button1" type="submit" value="Select">
+  </form>
+  
+
+ 
   </div>
 
   
