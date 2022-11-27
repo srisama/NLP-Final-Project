@@ -49,7 +49,7 @@ def projectdescription():
 @views.route('/findhotels',methods=['GET', 'POST'])
 @login_required
 def findhotels():
-    con = sql.connect("database.db")
+    con = sql.connect("instance/database.db")
     
     con.row_factory = sql.Row
    
