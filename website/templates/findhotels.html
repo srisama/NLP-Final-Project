@@ -52,6 +52,22 @@
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
+
+
+  
+table {
+  border-collapse: collapse;
+  width: 600px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+ 
+
   </style>
 
 <div>
@@ -62,16 +78,75 @@
   <form action="#" name="form" id="form" method="post">
   <select name="option" width="300px">
     {% for hotel in hotels %}
-        <option value="{{ hotel.id }}" SELECTED>{{ hotel.name }}</option>
+        <option value="{{ hotel.id }}" id="hotelid" SELECTED>{{ hotel.name }}</option>
     {% endfor %}
     </select>
-
-    <input class="button1" type="submit" value="Select">
+    
+    <input class="button1" type="submit" value="Select" onclick="ShowRating();">
+    
   </form>
-  
+  <div>
+    {% for rating in hotelRatings %}
+    <div style="overflow-x: auto;">
+    <table class="alert-danger" align="center" WIDTH="50%" style="margin-top: 50px; margin-left:100px ;">
+     <tr>
+      <tr>
+        <td colspan="5" ><strong> Hotel Details</strong></td>
+      </tr>
+    <td colspan="3">Hotel Name</td>
+     <td colspan="2">{{rating.name}}</td>
+     </tr>
+     <tr>
+      <td colspan="3">Hotel Class </td>
+      <td colspan="2">{{rating.hotel_class}}</td>
+      </tr>
+     <tr>
+      <tr>
+        <td colspan="5" ><strong> Score Breakdown </strong></td>
+      </tr>
+      <tr>
+     <td colspan="3">Positive Score</td>
+     <td colspan="2">{{rating.positive}}</td>
+    </tr>
+     <tr>
+     <td colspan="3">Negative Score</td>
+     <td colspan="2">{{rating.negative}}</td>
+     </tr>
+     <tr>
+     <td colspan="3">Neutral Score</td>
+     <td colspan="2">{{rating.neutral}}</td>
+     </tr>
+     <tr>
+      <td colspan="5" ><strong> Ratings </strong></td>
+    </tr>
+    <tr>
+      <td><strong><h1>* * * * *</h1></strong></td><td><strong><h1>* * * *</h1> </strong></td><td><strong><h1>* * *</h1>  </strong></td><td><strong><h1>* *</h1> </strong></td><td><strong><h1>* </h1></strong></td>
+      
+      </tr>
+      <tr>
+        <td style="text-align: center ;">{{rating.rating_5}}</td>
+        <td style="text-align: center ;">{{rating.rating_4}}</td>
+        <td style="text-align: center ;">{{rating.rating_3}}</td>
+        <td style="text-align: center ;">{{rating.rating_2}}</td>
+        <td style="text-align: center ;">{{rating.rating_1}}</td>
+        </tr>
+         
+    </table>
+  </div>
+     
+
+    {% endfor %}
+     
+   
+
+  </div>
 
  
   </div>
+<script>
 
+
+
+</script>
   
 {% endblock %}

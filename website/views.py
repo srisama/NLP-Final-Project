@@ -7,7 +7,7 @@ from . import db
 import json
 
 views = Blueprint('views', __name__)
-
+hotelNames=""
 
 @views.route('/', methods=['GET', 'POST'])
 @login_required
@@ -46,17 +46,17 @@ def about():
 def projectdescription():
     return render_template("projectdescription.html", user=current_user)
 
-@views.route('/findhotels',methods=['GET', 'POST'])
+@views.route('/findhotels',methods=['GET'])
 @login_required
 def findhotels():
-    con = sql.connect("instance/database.db")
+    con1 = sql.connect("instance/database.db")
     
-    con.row_factory = sql.Row
+    con1.row_factory = sql.Row
    
-    cur = con.cursor()
-    cur.execute("select * from  offerings order by name ")
+    cur1 = con1.cursor()
+    cur1.execute("select  id,name from finalsentiment_all order by name ")
    
-    hotelNames = cur.fetchall(); 
+    hotelNames = cur1.fetchall(); 
     
     return render_template("findhotels.html", user=current_user, hotels=hotelNames)
 
@@ -70,3 +70,27 @@ def visualization():
     return render_template("visualization.html", user=current_user)
 
 
+@views.route('/findhotels',methods=['Post'])
+def ShowRating():
+    findhotels()
+    postid= request.form.get('option')
+    con = sql.connect("instance/database.db")
+    
+    con.row_factory = sql.Row
+    qid =str.format("select *  from finalsentiment_all Where id={0}" , postid)
+    cur = con.cursor()
+    cur.execute(qid)
+    cur1 = con.cursor()
+    cur1.execute("select  id,name from finalsentiment_all order by name ")
+   
+    Ratings = cur.fetchall();    
+    hotelNames = cur1.fetchall(); 
+
+
+    return render_template("findhotels.html", user=current_user, hotelRatings=Ratings, hotels=hotelNames)
+
+
+
+
+
+    # return render_template("about.html", user=current_user,pid=postid)
