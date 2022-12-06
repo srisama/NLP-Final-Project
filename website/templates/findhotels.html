@@ -88,50 +88,68 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   <div>
     {% for rating in hotelRatings %}
     <div style="overflow-x: auto;">
-    <table class="alert-danger" align="center" WIDTH="50%" style="margin-top: 50px; margin-left:100px ;">
-     <tr>
-      <tr>
-        <td colspan="5" ><strong> Hotel Details</strong></td>
+    <table class="alert-danger">
+      <tr><td>
+        <table class="alert-danger" align="center" WIDTH="50%" style="margin-top: 50px; margin-left:10px ;">
+          <tr>
+           <tr>
+             <td colspan="5" ><strong> Hotel Details</strong></td>
+           </tr>
+         <td colspan="3">Hotel Name</td>
+          <td colspan="2">{{rating.name}}</td>
+          </tr>
+          <tr>
+           <td colspan="3">Hotel Class </td>
+           <td colspan="2">{{rating.hotel_class}}</td>
+           </tr>
+          <tr>
+           <tr>
+             <td colspan="5" ><strong> Score Breakdown </strong></td>
+           </tr>
+           <tr>
+          <td colspan="3">Positive Score</td>
+          <td colspan="2">{{rating.positive}}</td>
+         </tr>
+          <tr>
+          <td colspan="3">Negative Score</td>
+          <td colspan="2">{{rating.negative}}</td>
+          </tr>
+          <tr>
+          <td colspan="3">Neutral Score</td>
+          <td colspan="2">{{rating.neutral}}</td>
+          </tr>
+          <tr>
+           <td colspan="5" ><strong> Ratings </strong></td>
+         </tr>
+         <tr>
+           <td><strong><h1>* * * * *</h1></strong></td><td><strong><h1>* * * *</h1> </strong></td><td><strong><h1>* * *</h1>  </strong></td><td><strong><h1>* *</h1> </strong></td><td><strong><h1>* </h1></strong></td>
+           
+           </tr>
+           <tr>
+             <td style="text-align: center ;">{{rating.rating_5}}</td>
+             <td style="text-align: center ;">{{rating.rating_4}}</td>
+             <td style="text-align: center ;">{{rating.rating_3}}</td>
+             <td style="text-align: center ;">{{rating.rating_2}}</td>
+             <td style="text-align: center ;">{{rating.rating_1}}</td>
+             </tr>
+            </td>
+            
+         </table>
+         <td>
+          {%  if rating.id == 1 %}
+          <img src="../static/images/245eastwest.jpg" alt="Final Project" >
+          {% elif rating.id == 2  %}
+          <img src="../static/images/3westclub.jpg" alt="Final Project">
+          {% elif rating.id == 3  %}
+          <img src="../static/images/AKAUnitedNations.jpg" alt="Final Project" >
+          {% elif rating.id == 4  %}
+          <img src="../static/images/AffiniaGardens.jpg" alt="Final Project" >
+          {% endif %}
+        </td>
       </tr>
-    <td colspan="3">Hotel Name</td>
-     <td colspan="2">{{rating.name}}</td>
-     </tr>
-     <tr>
-      <td colspan="3">Hotel Class </td>
-      <td colspan="2">{{rating.hotel_class}}</td>
-      </tr>
-     <tr>
-      <tr>
-        <td colspan="5" ><strong> Score Breakdown </strong></td>
-      </tr>
-      <tr>
-     <td colspan="3">Positive Score</td>
-     <td colspan="2">{{rating.positive}}</td>
-    </tr>
-     <tr>
-     <td colspan="3">Negative Score</td>
-     <td colspan="2">{{rating.negative}}</td>
-     </tr>
-     <tr>
-     <td colspan="3">Neutral Score</td>
-     <td colspan="2">{{rating.neutral}}</td>
-     </tr>
-     <tr>
-      <td colspan="5" ><strong> Ratings </strong></td>
-    </tr>
-    <tr>
-      <td><strong><h1>* * * * *</h1></strong></td><td><strong><h1>* * * *</h1> </strong></td><td><strong><h1>* * *</h1>  </strong></td><td><strong><h1>* *</h1> </strong></td><td><strong><h1>* </h1></strong></td>
-      
-      </tr>
-      <tr>
-        <td style="text-align: center ;">{{rating.rating_5}}</td>
-        <td style="text-align: center ;">{{rating.rating_4}}</td>
-        <td style="text-align: center ;">{{rating.rating_3}}</td>
-        <td style="text-align: center ;">{{rating.rating_2}}</td>
-        <td style="text-align: center ;">{{rating.rating_1}}</td>
-        </tr>
-         
     </table>
+    
+     
   </div>
      
 
