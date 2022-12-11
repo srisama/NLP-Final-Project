@@ -93,4 +93,4 @@ def ShowRating():
 
 
 
-    # return render_template("about.html", user=current_user,pid=postid)
+   
